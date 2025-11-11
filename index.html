@@ -7,9 +7,9 @@
     <!-- iOS Web App Meta Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="SAMS">
+    <meta name="apple-mobile-web-app-title" content="Store Visits">
 
-    <title>Store Attribute Management System</title>
+    <title>Store Visits</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
     <header class="app-header">
         <div class="header-left">
             <span class="apple-logo"></span>
-            <span class="app-title">Store Attribute Management System</span>
+            <span class="app-title">Store Visits</span>
         </div>
         <nav class="header-nav">
             <a href="#" class="nav-link">Search</a>
@@ -34,22 +34,6 @@
             </div>
         </div>
 
-        <!-- Statistics -->
-        <div class="statistics">
-            <div class="stat-item">
-                <span class="stat-number" id="totalStores">0</span>
-                <span class="stat-label">Apple Retail Stores</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number upcoming" id="upcomingStores">0</span>
-                <span class="stat-label">Upcoming Stores</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number countries" id="totalCountries">0</span>
-                <span class="stat-label">Countries/Regions</span>
-            </div>
-        </div>
-
         <!-- Content Area with Sidebar and Table -->
         <div class="content-wrapper">
             <!-- Left Sidebar -->
@@ -59,39 +43,91 @@
                     <p class="filter-description">Choose any specific level below to view details through the specified hierarchy.</p>
 
                     <div class="filter-group">
-                        <label>
-                            <input type="text" id="countryFilter" placeholder="Country/Region">
-                        </label>
+                        <label>Geo</label>
+                        <div class="multiselect" id="geoFilter">
+                            <div class="multiselect-selected">Select geo...</div>
+                            <div class="multiselect-dropdown">
+                                <input type="text" class="multiselect-search" placeholder="Search...">
+                                <div class="multiselect-options"></div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="filter-group">
-                        <label>
-                            <input type="text" id="marketTeamFilter" placeholder="Market Team">
-                        </label>
+                        <label>Country/Region</label>
+                        <div class="multiselect" id="countryFilter">
+                            <div class="multiselect-selected">Select countries...</div>
+                            <div class="multiselect-dropdown">
+                                <input type="text" class="multiselect-search" placeholder="Search...">
+                                <div class="multiselect-options"></div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="filter-group">
-                        <label>
-                            <input type="text" id="marketFilter" placeholder="Market">
-                        </label>
+                        <label>Market Team</label>
+                        <div class="multiselect" id="marketTeamFilter">
+                            <div class="multiselect-selected">Select market teams...</div>
+                            <div class="multiselect-dropdown">
+                                <input type="text" class="multiselect-search" placeholder="Search...">
+                                <div class="multiselect-options"></div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="filter-group">
-                        <label>
-                            <input type="text" id="storeFilter" placeholder="Store Name">
-                        </label>
+                        <label>Market</label>
+                        <div class="multiselect" id="marketFilter">
+                            <div class="multiselect-selected">Select markets...</div>
+                            <div class="multiselect-dropdown">
+                                <input type="text" class="multiselect-search" placeholder="Search...">
+                                <div class="multiselect-options"></div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="filter-group">
-                        <label>
-                            <input type="text" id="cityFilter" placeholder="City">
-                        </label>
+                        <label>City</label>
+                        <div class="multiselect" id="cityFilter">
+                            <div class="multiselect-selected">Select cities...</div>
+                            <div class="multiselect-dropdown">
+                                <input type="text" class="multiselect-search" placeholder="Search...">
+                                <div class="multiselect-options"></div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="filter-group">
-                        <label>
-                            <input type="text" id="storeNumberFilter" placeholder="Store Number">
-                        </label>
+                        <label>Store Name</label>
+                        <div class="multiselect" id="storeFilter">
+                            <div class="multiselect-selected">Select stores...</div>
+                            <div class="multiselect-dropdown">
+                                <input type="text" class="multiselect-search" placeholder="Search...">
+                                <div class="multiselect-options"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Store Number</label>
+                        <div class="multiselect" id="storeNumberFilter">
+                            <div class="multiselect-selected">Select store numbers...</div>
+                            <div class="multiselect-dropdown">
+                                <input type="text" class="multiselect-search" placeholder="Search...">
+                                <div class="multiselect-options"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Store Status</label>
+                        <div class="multiselect" id="storeStatusFilter">
+                            <div class="multiselect-selected">Select status...</div>
+                            <div class="multiselect-dropdown">
+                                <input type="text" class="multiselect-search" placeholder="Search...">
+                                <div class="multiselect-options"></div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="filter-actions">
@@ -103,11 +139,6 @@
 
             <!-- Main Content Area -->
             <main class="main-content">
-                <div class="view-controls">
-                    <button class="view-btn">Map View</button>
-                    <button class="view-btn active">Store List</button>
-                </div>
-
                 <!-- Loading State -->
                 <div class="loading" id="loading" style="display: none;">
                     <div class="spinner"></div>
